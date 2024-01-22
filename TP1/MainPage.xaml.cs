@@ -1,4 +1,6 @@
-﻿namespace TP1
+﻿using System.Text.RegularExpressions;
+
+namespace TP1
 {
     public partial class MainPage : ContentPage
     {
@@ -9,16 +11,10 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void entNuméro_TextChanged(object sender, TextChangedEventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Regex exp = new Regex(@"0[1-9](\.?[0-9]{2}){4}");
+            butAppeler.IsEnabled = exp.IsMatch(entNuméro.Text);
         }
     }
 
