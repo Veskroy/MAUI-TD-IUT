@@ -16,6 +16,19 @@ namespace TP1
             Regex exp = new Regex(@"0[1-9](\.?[0-9]{2}){4}");
             butAppeler.IsEnabled = exp.IsMatch(entNuméro.Text);
         }
+
+        private async void butAppeler_Clicked(object sender, EventArgs e)
+        {
+            if (PhoneDialer.Default.IsSupported)
+            {
+                PhoneDialer.Default.Open(entNuméro.Text);
+            }
+            else
+            {
+                await DisplayAlert("Interface manquante",
+                "L'interface 'Appel téléphonique' n'est pas disponible sur cette plateforme", "Ok");
+            }
+        }
     }
 
 }

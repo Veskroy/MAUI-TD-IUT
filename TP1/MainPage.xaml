@@ -30,7 +30,8 @@
                 Text="Appelez-moi !"
                 HorizontalOptions="Center"
                 SemanticProperties.Hint="Déclanche l'appel"
-                IsEnabled="False"/>
+                IsEnabled="False"
+                Clicked="butAppeler_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 
