@@ -21,6 +21,8 @@ namespace TP1
         {
             if (PhoneDialer.Default.IsSupported)
             {
+                //(App.Current as App).NumérosAppelés.Add(entNuméro.Text);
+                App.NumérosAppelés.Add(entNuméro.Text);
                 PhoneDialer.Default.Open(entNuméro.Text);
             }
             else

@@ -7,9 +7,17 @@
     Shell.FlyoutBehavior="Disabled"
     Title="TP1">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 
+
+
+        <TabBar>
+            <ShellContent
+             Title="Call Me"
+             ContentTemplate="{DataTemplate local:MainPage}"
+             Route="MainPage" />
+            <ShellContent
+             Title="Appels lancés"
+             ContentTemplate="{DataTemplate local:PageNumeros}"
+             Route="PageNumeros" />
+        </TabBar>
 </Shell>
