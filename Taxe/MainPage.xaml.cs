@@ -1,4 +1,7 @@
-﻿namespace Taxe
+﻿using Microsoft.Maui.Controls;
+using System.Net;
+
+namespace Taxe
 {
     public partial class MainPage : ContentPage
     {
@@ -7,8 +10,33 @@
         public MainPage()
         {
             InitializeComponent();
+            entPrix.TextChanged += (sender, e) => calculer();
         }
 
+        private void calculer()
+        {
+            double tauxTaxe = slTauxTaxe.Value / 100.0;
+            if (double.TryParse(entPrix.Text, out double prix))
+            {
+                if (!swTaxeIncluse.IsToggled)
+                {
+                    double taxe = prix * tauxTaxe;
+                    lblTotal.Text = (prix + taxe).ToString("F2");
+                    lblTaxe.Text = taxe.ToString("F2");
+                }
+                else
+                {
+
+                    lblTotal.Text = entPrix.Text;
+                    lblTaxe.Text = (prix * tauxTaxe / (1 + tauxTaxe)).ToString("F2");
+                }
+            }     
+        }
+
+       /* private async void entPrix_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }*/
     }
 
 }

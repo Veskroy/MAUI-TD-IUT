@@ -14,13 +14,21 @@
                 Padding="30,0"
                 Spacing="25">
 
-                <Label
-                    Text="Prix"
-                    SemanticProperties.HeadingLevel="Level1" />
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Prix : "
+                        SemanticProperties.HeadingLevel="Level1" 
+                        Margin="0,10,0,0"/>
 
-                <Entry
-                    SemanticProperties.HeadingLevel="Level2" 
-                    Placeholder="tapez le prix"/>
+                    <Entry
+                        SemanticProperties.HeadingLevel="Level2" 
+                        Placeholder="tapez le prix"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="10,0,0,0"
+                        x:Name="entPrix"
+                        />
+                </StackLayout>
+                
 
                 <HorizontalStackLayout>
 
@@ -28,20 +36,23 @@
                         Text="Comprenant (On – T.T.C) ou non (Off – H.T.) la taxe"
                         Padding="0,10,10,0"/>
 
-                    <Switch />
+                    <Switch 
+                        x:Name="swTaxeIncluse"/>
 
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <Label Text="Montant de la taxe : " 
                            Padding="0,0,10,0"/>
-                    <Label Text="--- " />
+                    <Label Text="--- " 
+                           x:Name="lblTaxe"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <Label Text="Total : " 
                            Padding="0,0,10,0"/>
-                    <Label Text="--- "/>
+                    <Label Text="--- "
+                           x:Name="lblTotal"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
@@ -53,27 +64,29 @@
                 <HorizontalStackLayout>
                     <Label Text="Taux de la taxe (%) " 
                            Padding="0,0,10,0"/>
-                    <Label Text="20% " />
+                    <Label Text="20% "
+                           x:Name="lblTauxTaxe"/>
                 </HorizontalStackLayout>
 
 
                 <Slider
                     Minimum="0"
                     Maximum="100"
-                    Value="20" />
+                    Value="20" 
+                    x:Name="slTauxTaxe"/>
 
                 <StackLayout Orientation="Horizontal" Spacing="20">
                     
                     <Button
                         Text="15 %" 
-                        HorizontalOptions="FillAndExpand"/>
+                        HorizontalOptions="FillAndExpand"
+                        x:Name="but15Pourcent"/>
 
                     <Button
                         Text="20 %"
-                        HorizontalOptions="FillAndExpand"/>
+                        HorizontalOptions="FillAndExpand"
+                        x:Name="but20Pourcent"/>
                 </StackLayout>
-
-
 
             </VerticalStackLayout>
         </ScrollView>
