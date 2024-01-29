@@ -3,43 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Taxe.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Label
-                Text="Prix"
-                SemanticProperties.HeadingLevel="Level1" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
 
-            <Entry
-                SemanticProperties.HeadingLevel="Level2" 
-                Placeholder="tapez le prix"/>
+                <Label
+                    Text="Prix"
+                    SemanticProperties.HeadingLevel="Level1" />
 
-            <Label
-                Text="Comprenant (On – T.T.C) ou non (Off – H.T.) la taxe"/>
+                <Entry
+                    SemanticProperties.HeadingLevel="Level2" 
+                    Placeholder="tapez le prix"/>
 
-            <Switch />
+                <HorizontalStackLayout>
 
-            <Label Text="Montant de la taxe : " />
-            <Label Text="--- " />
-            <Label Text="Total " />
-            <Label Text="--- "/>
-            <Label Text="Taux de la taxe (%) " />
-            <Label Text="20% " />
+                    <Label
+                        Text="Comprenant (On – T.T.C) ou non (Off – H.T.) la taxe"
+                        Padding="0,10,10,0"/>
 
-            <Slider
-                Minimum="0"
-                Maximum="100"
-                Value="20" />
+                    <Switch />
 
-            <Button
-                Text="15 %" />
+                </HorizontalStackLayout>
 
-            <Button
-                Text="20 %" />
+                <HorizontalStackLayout>
+                    <Label Text="Montant de la taxe : " 
+                           Padding="0,0,10,0"/>
+                    <Label Text="--- " />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Total : " 
+                           Padding="0,0,10,0"/>
+                    <Label Text="--- "/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ScrollView Grid.Row="1" VerticalOptions="End"
+                    Margin="30,0,30,10">
+            <VerticalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Taux de la taxe (%) " 
+                           Padding="0,0,10,0"/>
+                    <Label Text="20% " />
+                </HorizontalStackLayout>
 
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <Slider
+                    Minimum="0"
+                    Maximum="100"
+                    Value="20" />
+
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    
+                    <Button
+                        Text="15 %" 
+                        HorizontalOptions="FillAndExpand"/>
+
+                    <Button
+                        Text="20 %"
+                        HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 
 </ContentPage>
