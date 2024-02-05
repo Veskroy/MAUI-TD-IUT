@@ -35,7 +35,7 @@ namespace Taxe
 
        /* private async void entPrix_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+        Autre Methode pour inplementer le textchange
         }*/
     }
 
