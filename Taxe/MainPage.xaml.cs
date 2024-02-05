@@ -11,11 +11,13 @@ namespace Taxe
         {
             InitializeComponent();
             entPrix.TextChanged += (sender, e) => calculer();
+            slTauxTaxe.ValueChanged += (sender, e) => calculer();
         }
 
         private void calculer()
         {
             double tauxTaxe = slTauxTaxe.Value / 100.0;
+            lblTauxTaxe.Text = slTauxTaxe.Value.ToString("F2")+" %";
             if (double.TryParse(entPrix.Text, out double prix))
             {
                 if (!swTaxeIncluse.IsToggled)

@@ -64,7 +64,7 @@
                 <HorizontalStackLayout>
                     <Label Text="Taux de la taxe (%) " 
                            Padding="0,0,10,0"/>
-                    <Label Text="20% "
+                    <Label Text="20 % "
                            x:Name="lblTauxTaxe"/>
                 </HorizontalStackLayout>
 
