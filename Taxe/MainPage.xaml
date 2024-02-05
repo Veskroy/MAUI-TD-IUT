@@ -24,9 +24,7 @@
                         SemanticProperties.HeadingLevel="Level2" 
                         Placeholder="tapez le prix"
                         HorizontalOptions="FillAndExpand"
-                        Margin="10,0,0,0"
-                        x:Name="entPrix"
-                        />
+                        Margin="10,0,0,0"/>
                 </StackLayout>
                 
 
@@ -36,23 +34,20 @@
                         Text="Comprenant (On – T.T.C) ou non (Off – H.T.) la taxe"
                         Padding="0,10,10,0"/>
 
-                    <Switch 
-                        x:Name="swTaxeIncluse"/>
+                    <Switch />
 
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <Label Text="Montant de la taxe : " 
                            Padding="0,0,10,0"/>
-                    <Label Text="--- " 
-                           x:Name="lblTaxe"/>
+                    <Label Text="--- " />
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <Label Text="Total : " 
                            Padding="0,0,10,0"/>
-                    <Label Text="--- "
-                           x:Name="lblTotal"/>
+                    <Label Text="--- "/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
@@ -64,16 +59,14 @@
                 <HorizontalStackLayout>
                     <Label Text="Taux de la taxe (%) " 
                            Padding="0,0,10,0"/>
-                    <Label Text="20 % "
-                           x:Name="lblTauxTaxe"/>
+                    <Label Text="20 % "/>
                 </HorizontalStackLayout>
 
 
                 <Slider
                     Minimum="0"
                     Maximum="100"
-                    Value="20" 
-                    x:Name="slTauxTaxe"/>
+                    Value="20" />
 
                 <StackLayout Orientation="Horizontal" Spacing="20">
                     

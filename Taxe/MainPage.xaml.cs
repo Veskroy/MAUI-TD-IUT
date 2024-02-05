@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using System.Net;
+using TaxeLibrary;
 
 namespace Taxe
 {
@@ -10,14 +11,16 @@ namespace Taxe
         public MainPage()
         {
             InitializeComponent();
+            /*
             entPrix.TextChanged += (sender, e) => calculer();
             slTauxTaxe.ValueChanged += (sender, e) => calculer();
             swTaxeIncluse.Toggled += (sender, e) => calculer();
-            but15Pourcent.Clicked += (sender, e) => calculerBis(15);
-            but20Pourcent.Clicked += (sender, e) => calculerBis(20);
+            */
+            but15Pourcent.Clicked += (sender, e) => { };
+            but20Pourcent.Clicked += (sender, e) => { };
         }
 
-        private void calculer()
+        /*private void calculer()
         {
             double tauxTaxe = slTauxTaxe.Value / 100.0;
             lblTauxTaxe.Text = slTauxTaxe.Value.ToString("F2")+" %";
@@ -37,7 +40,7 @@ namespace Taxe
                 }
             }     
         }
-
+        
         private void calculerBis(double taux)
         {
             double tauxTaxe = taux / 100.0;
@@ -58,7 +61,7 @@ namespace Taxe
                     lblTaxe.Text = (prix * tauxTaxe / (1 + tauxTaxe)).ToString("F2");
                 }
             }
-        }
+        }*/
 
         /* private async void entPrix_TextChanged(object sender, TextChangedEventArgs e)
          {
