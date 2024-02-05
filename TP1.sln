@@ -5,7 +5,11 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP1", "TP1\TP1.csproj", "{B338938D-F66F-42BE-A114-36857EFB5ED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxe", "Taxe\Taxe.csproj", "{97134618-EA7C-4DC2-9773-E41552CDB639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxe", "Taxe\Taxe.csproj", "{97134618-EA7C-4DC2-9773-E41552CDB639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxeLibrary", "TaxeLibrary\TaxeLibrary.csproj", "{A2BE6594-320F-4296-A890-C688F1B3E250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaxeLibrary", "TestTaxeLibrary\TestTaxeLibrary.csproj", "{130F6ED8-DEEB-4842-8264-1F9F1AAF131E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{97134618-EA7C-4DC2-9773-E41552CDB639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97134618-EA7C-4DC2-9773-E41552CDB639}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97134618-EA7C-4DC2-9773-E41552CDB639}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A2BE6594-320F-4296-A890-C688F1B3E250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BE6594-320F-4296-A890-C688F1B3E250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BE6594-320F-4296-A890-C688F1B3E250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BE6594-320F-4296-A890-C688F1B3E250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{130F6ED8-DEEB-4842-8264-1F9F1AAF131E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{130F6ED8-DEEB-4842-8264-1F9F1AAF131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{130F6ED8-DEEB-4842-8264-1F9F1AAF131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{130F6ED8-DEEB-4842-8264-1F9F1AAF131E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
