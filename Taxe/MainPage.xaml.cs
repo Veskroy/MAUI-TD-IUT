@@ -13,6 +13,8 @@ namespace Taxe
             entPrix.TextChanged += (sender, e) => calculer();
             slTauxTaxe.ValueChanged += (sender, e) => calculer();
             swTaxeIncluse.Toggled += (sender, e) => calculer();
+            but15Pourcent.Clicked += (sender, e) => calculerBis(15);
+            but20Pourcent.Clicked += (sender, e) => calculerBis(20);
         }
 
         private void calculer()
@@ -36,10 +38,32 @@ namespace Taxe
             }     
         }
 
-       /* private async void entPrix_TextChanged(object sender, TextChangedEventArgs e)
+        private void calculerBis(double taux)
         {
-        Autre Methode pour inplementer le textchange
-        }*/
+            double tauxTaxe = taux / 100.0;
+            slTauxTaxe.Value = taux;
+            lblTauxTaxe.Text = slTauxTaxe.Value.ToString("F2") + " %";
+            if (double.TryParse(entPrix.Text, out double prix))
+            {
+                if (!swTaxeIncluse.IsToggled)
+                {
+                    double taxe = prix * tauxTaxe;
+                    lblTotal.Text = (prix + taxe).ToString("F2");
+                    lblTaxe.Text = taxe.ToString("F2");
+                }
+                else
+                {
+
+                    lblTotal.Text = entPrix.Text;
+                    lblTaxe.Text = (prix * tauxTaxe / (1 + tauxTaxe)).ToString("F2");
+                }
+            }
+        }
+
+        /* private async void entPrix_TextChanged(object sender, TextChangedEventArgs e)
+         {
+         Autre Methode pour inplementer le textchange
+         }*/
     }
 
 }
