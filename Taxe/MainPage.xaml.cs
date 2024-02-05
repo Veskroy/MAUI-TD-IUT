@@ -12,6 +12,7 @@ namespace Taxe
             InitializeComponent();
             entPrix.TextChanged += (sender, e) => calculer();
             slTauxTaxe.ValueChanged += (sender, e) => calculer();
+            swTaxeIncluse.Toggled += (sender, e) => calculer();
         }
 
         private void calculer()
