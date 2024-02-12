@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace TaxeLibrary.ViewModel
 {
-<<<<<<< HEAD
     public class VMCalculTaxe : INotifyPropertyChanged
     {
         private CalculTaxe _cTaxe = new CalculTaxe();
@@ -26,23 +25,7 @@ namespace TaxeLibrary.ViewModel
                 {
                     _cTaxe.TauxTaxe = _v;
                     NotifyPropertyChanged(nameof(TauxTaxeAffiché));
-                }
-=======
-    public class VMCalculTaxe
-    {
-        private CalculTaxe _cTaxe = new CalculTaxe();
-
-        public double TauxTaxe 
-        {
-            get
-            {
-                return _cTaxe.TauxTaxe*100;
-            }
-            set
-            {
-                _cTaxe.TauxTaxe = value/100;
-               
->>>>>>> 11fc6e4e6755eb8666ea881c8dcf7152c2122c84
+                }              
             }
         }
         public string TauxTaxeAffiché
