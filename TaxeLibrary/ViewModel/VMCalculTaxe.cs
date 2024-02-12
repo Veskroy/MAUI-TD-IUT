@@ -13,6 +13,46 @@ namespace TaxeLibrary.ViewModel
         private CalculTaxe _cTaxe = new CalculTaxe();
 
         public bool EntréeTTC {  get; set; }
+        public string PrixEntré 
+        {
+            get 
+            {
+                if (_cTaxe.PrixHT == 0.0 && _cTaxe.PrixTTC == 0.0)
+                {
+                    return "";
+                }
+                else if (EntréeTTC)
+                {
+                    // prixTTC
+                    return _cTaxe.PrixTTC.ToString();
+
+                }
+                else
+                {
+                    // pritHT
+                    return _cTaxe.PrixHT.ToString();
+
+                }
+            }
+            set
+            {
+                if (!double.TryParse(value, out double numericValue))
+                {
+                    value = "0.0";
+                }
+                if (EntréeTTC)
+                {
+                    // prixTTC
+                    _cTaxe.PrixTTC = Convert.ToDouble(value);
+                }
+                else
+                {
+                    // pritHT
+                    _cTaxe.PrixHT = Convert.ToDouble(value);
+
+                }
+            }
+        }
 
         public double TauxTaxe
         {

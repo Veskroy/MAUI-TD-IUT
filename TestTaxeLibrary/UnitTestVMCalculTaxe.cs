@@ -48,5 +48,18 @@ namespace TestTaxeLibrary
             Assert.AreEqual(vm.TauxTaxeAffiché, affichage);
         }
 
+        [TestMethod]
+        public void TestPrixEntré()
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.PrixEntré = "145,1";
+            Assert.AreEqual("145,1", vm.PrixEntré);
+            vm.PrixEntré = "0.0";
+            Assert.AreEqual("", vm.PrixEntré);
+            vm.PrixEntré = "15,45a";
+            Assert.AreEqual("", vm.PrixEntré);
+        }
+
+
     }
 }
