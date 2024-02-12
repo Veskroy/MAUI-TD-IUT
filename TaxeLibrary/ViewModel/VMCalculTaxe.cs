@@ -12,6 +12,8 @@ namespace TaxeLibrary.ViewModel
     {
         private CalculTaxe _cTaxe = new CalculTaxe();
 
+        public bool EntréeTTC {  get; set; }
+
         public double TauxTaxe
         {
             get

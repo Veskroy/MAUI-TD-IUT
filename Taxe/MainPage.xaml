@@ -34,7 +34,7 @@
                         Text="Comprenant (On – T.T.C) ou non (Off – H.T.) la taxe"
                         Padding="0,10,10,0"/>
 
-                    <Switch />
+                    <Switch IsToggled="{Binding EntréeTTC}" />
 
                 </HorizontalStackLayout>
 
