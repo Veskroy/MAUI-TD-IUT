@@ -6,16 +6,28 @@ using System.Threading.Tasks;
 
 namespace TaxeLibrary.ViewModel
 {
-    internal class VMCalculTaxe
+    public class VMCalculTaxe
     {
         private CalculTaxe _cTaxe = new CalculTaxe();
 
-        public double TauxTaxe;
-        public string TauxTaxeAffichée
+        public double TauxTaxe 
         {
             get
             {
-                /*return (TauxTaxe * 100).ToString() string.Format()*/
+                return _cTaxe.TauxTaxe*100;
+            }
+            set
+            {
+                _cTaxe.TauxTaxe = value/100;
+               
+            }
+        }
+        public string TauxTaxeAffiché
+        {
+            get
+            {
+                string s = string.Format("{0:F2} %", TauxTaxe);
+                return s;
             }
             private set
             {
