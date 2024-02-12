@@ -1,11 +1,13 @@
 ﻿using Microsoft.Maui.Controls;
 using System.Net;
 using TaxeLibrary;
+using TaxeLibrary.ViewModel;
 
 namespace Taxe
 {
     public partial class MainPage : ContentPage
     {
+
         int count = 0;
 
         public MainPage()
@@ -18,6 +20,7 @@ namespace Taxe
             */
             but15Pourcent.Clicked += (sender, e) => { };
             but20Pourcent.Clicked += (sender, e) => { };
+            BindingContext = new VMCalculTaxe();
         }
 
         /*private void calculer()
