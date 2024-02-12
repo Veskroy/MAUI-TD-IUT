@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ComponentModel;
+=======
+>>>>>>> 11fc6e4e6755eb8666ea881c8dcf7152c2122c84
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,7 @@ namespace TestTaxeLibrary
     [TestClass]
     public class UnitTestVMCalculTaxe
     {
+<<<<<<< HEAD
         private SortedSet<string> _properties;
         [TestInitialize]
         public void InitializeTest()
@@ -36,6 +40,8 @@ namespace TestTaxeLibrary
             "Lorsque la valeur de TauxTaxe n'est pas modifiée, le setter ne doit pas notifier le changement de la propriété TauxTaxeAffiché");
         }
 
+=======
+>>>>>>> 11fc6e4e6755eb8666ea881c8dcf7152c2122c84
         [DataTestMethod]
         [DataRow(1.7523, "1,75 %")]
         [DataRow(22.3890, "22,39 %")]
