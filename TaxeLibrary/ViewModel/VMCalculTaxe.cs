@@ -83,6 +83,15 @@ namespace TaxeLibrary.ViewModel
             }
         }
 
+        public string PrixAffiché
+        {
+            get {
+                string result = string.Format("{0:C}", _cTaxe.PrixTTC);
+                return result;
+            }
+             private set{ }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] string member = "")

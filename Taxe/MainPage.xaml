@@ -46,7 +46,8 @@
 
                 <HorizontalStackLayout>
                     <Label Text="Total : " 
-                           Padding="0,0,10,0"/>
+                           Padding="0,0,10,0"
+                           value="{Binding PrixAffiché}"/>
                     <Label Text="--- "/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>

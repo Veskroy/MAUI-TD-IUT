@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,26 @@ namespace TestTaxeLibrary
         public void InitializeTest()
         {
             _properties = new SortedSet<string>();
+            CultureInfo.CurrentCulture = new CultureInfo("fr-FR");
+        }
+        [DataTestMethod]
+        [DataRow("45,789", "45,79", "45,79 €", "$45.79")]
+        [DataRow("12", "12", "12,00 €", "$12.00")]
+        public void TestPrixAffiché(string prix, string prixArrondi, string prixFr, string prixEn)
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.TauxTaxe = 0.0; // Pour simplifier les calculs
+                               // On suppose que la propriété PrixEntrée fonctionne !!
+            vm.PrixEntré = prix;
+            Assert.AreEqual(prixArrondi, vm.PrixEntré, "Problème avec la propriété PrixEntrée ??");
+            // Format Français
+            CultureInfo culture = new CultureInfo("fr-FR");
+            CultureInfo.CurrentCulture = culture;
+            Assert.AreEqual(prixFr, vm.PrixAffiché, "Problème avec le format français de la devise");
+            // Format Américain
+            culture = new CultureInfo("en-US");
+            CultureInfo.CurrentCulture = culture;
+            Assert.AreEqual(prixEn, vm.PrixAffiché, "Problème avec le format américain de la devise");
         }
         private void PropertyChanged(object e, PropertyChangedEventArgs arg)
         {
