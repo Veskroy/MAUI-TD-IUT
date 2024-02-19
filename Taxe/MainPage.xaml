@@ -41,7 +41,7 @@
                 <HorizontalStackLayout>
                     <Label Text="Montant de la taxe : " 
                            Padding="0,0,10,0"/>
-                    <Label Text="{Binding TauxTaxeAffiché}" />
+                    <Label Text="{Binding Taxe}" />
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>

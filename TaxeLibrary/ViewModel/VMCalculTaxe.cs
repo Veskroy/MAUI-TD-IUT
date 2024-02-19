@@ -12,7 +12,22 @@ namespace TaxeLibrary.ViewModel
     {
         private CalculTaxe _cTaxe = new CalculTaxe();
 
-        public bool EntréeTTC {  get; set; }
+        private bool _entréeTTC;
+        public bool EntréeTTC { 
+            get 
+            {return _entréeTTC;}
+
+            set
+            {
+                if (this._entréeTTC != value)
+                {
+                    _entréeTTC = value;
+                    NotifyPropertyChanged(nameof(PrixAffiché));
+                    NotifyPropertyChanged(nameof(Taxe));
+                }
+
+            }
+        }
         public string PrixEntré 
         {
             get 
@@ -36,21 +51,31 @@ namespace TaxeLibrary.ViewModel
             }
             set
             {
-                if (!double.TryParse(value, out double numericValue))
+                if (this.PrixEntré != value)
                 {
-                    value = "0";
-                }
-                if (EntréeTTC)
-                {
-                    // prixTTC
-                    _cTaxe.PrixTTC = Convert.ToDouble(value);
-                }
-                else
-                {
-                    // pritHT
-                    _cTaxe.PrixHT = Convert.ToDouble(value);
+
+                    if (!double.TryParse(value, out double numericValue))
+                    {
+                        value = "0";
+                        
+                    }
+                    if (EntréeTTC)
+                    {
+                        // prixTTC
+                        _cTaxe.PrixTTC = Convert.ToDouble(value);
+                    }
+                    else
+                    {
+                        // pritHT
+                        _cTaxe.PrixHT = Convert.ToDouble(value);
+
+                    }
+                    NotifyPropertyChanged(nameof(Taxe));
+                    NotifyPropertyChanged(nameof(PrixAffiché));
+                    NotifyPropertyChanged(nameof(PrixEntré));
 
                 }
+
             }
         }
 
@@ -67,6 +92,8 @@ namespace TaxeLibrary.ViewModel
                 {
                     _cTaxe.TauxTaxe = _v;
                     NotifyPropertyChanged(nameof(TauxTaxeAffiché));
+                    NotifyPropertyChanged(nameof(Taxe));
+                    NotifyPropertyChanged(nameof(PrixAffiché));
                 }              
             }
         }

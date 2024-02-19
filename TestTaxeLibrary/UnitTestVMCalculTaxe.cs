@@ -101,5 +101,66 @@ namespace TestTaxeLibrary
             Assert.AreEqual(taxeEn, vm.Taxe, "Problème avec le format américain de la taxe");
         }
 
+        [TestMethod]
+        public void TestEntréeTTCNotifications()
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.PropertyChanged += PropertyChanged;
+            vm.EntréeTTC = true;
+            Assert.IsTrue(_properties.Contains("PrixAffiché"),
+            "La notification de propriété PrixAffiché modifiée n'est pas lancée.");
+            Assert.IsTrue(_properties.Contains("Taxe"),
+            "La notification de propriété Taxe modifiée n'est pas lancée.");
+            Assert.AreEqual(2, _properties.Count,
+           $"Une autre notification inutile a été lancée. Liste des propriétés notifiées : {string.Join(", ", _properties)}");
+            _properties.Clear();
+            vm.EntréeTTC = true;
+            Assert.AreEqual(0, _properties.Count,
+            "Aucune notification ne devrait être lancée quand la propriété n'est pas modifiée");
+        }
+        [TestMethod]
+        public void TestPrixEntréeNotifications()
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.PropertyChanged += PropertyChanged;
+            vm.PrixEntré = "100";
+            Assert.IsTrue(_properties.Contains("PrixAffiché"),
+            "La notification de propriété PrixAffiché modifiée n'est pas lancée.");
+            Assert.IsTrue(_properties.Contains("Taxe"),
+            "La notification de propriété Taxe modifiée n'est pas lancée.");
+            Assert.IsTrue(_properties.Contains("PrixEntré"),
+            "La notification de propriété PrixEntré modifiée n'est pas lancée.");
+            Assert.AreEqual(3, _properties.Count,
+            $"Une autre notification inutile a été lancée. Liste des propriétés notifiées : {string.Join(", ", _properties)}");
+            _properties.Clear();
+            vm.PrixEntré = "100";
+            Assert.AreEqual(0, _properties.Count,
+            "Aucune notification ne devrait être lancée quand la propriété n'est pas modifiée");
+            vm.PrixEntré = "blablabla";
+            _properties.Clear();
+            vm.PrixEntré = "0";
+            Assert.AreEqual(0, _properties.Count,
+            "Aucune notification ne devrait être lancée quand la propriété n'est pas modifiée");
+            vm.PrixEntré = "truc";
+            Assert.AreEqual(0, _properties.Count,
+            "Aucune notification ne devrait être lancée quand la propriété n'est pas modifiée");
+        }
+        [TestMethod]
+        public void TestTauxTaxeNotifications()
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.PropertyChanged += PropertyChanged;
+            vm.TauxTaxe = 10.0;
+            Assert.IsTrue(_properties.Contains("PrixAffiché"),
+            "La notification de propriété PrixAffiché modifiée n'est pas lancée.");
+            Assert.IsTrue(_properties.Contains("Taxe"),
+            "La notification de propriété Taxe modifiée n'est pas lancée.");
+            Assert.IsTrue(_properties.Contains("TauxTaxeAffiché"),
+            "La notification de propriété TauxTaxeAffiché modifiée n'est pas lancée.");
+            _properties.Clear();
+            vm.TauxTaxe = 10.0;
+            Assert.AreEqual(0, _properties.Count,
+            "Aucune notification ne devrait être lancée quand la propriété n'est pas modifiée");
+        }
     }
-}
+    }
