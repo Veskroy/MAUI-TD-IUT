@@ -80,7 +80,26 @@ namespace TestTaxeLibrary
             vm.PrixEntré = "15,45a";
             Assert.AreEqual("", vm.PrixEntré);
         }
+        [DataTestMethod]
+        [DataRow("100", 20.9, "20,90 €", "$20.90")]
+        [DataRow("10", 20.9, "2,09 €", "$2.09")]
+        [DataRow("1", 20.9, "0,21 €", "$0.21")]
+        public void TestTaxe(string prix, double tauxTaxe, string taxeFr, string taxeEn)
+        {
+            VMCalculTaxe vm = new VMCalculTaxe();
+            vm.TauxTaxe = tauxTaxe;
+            vm.PrixEntré = prix;
+            Assert.AreEqual(prix, vm.PrixEntré, "Problème avec la propriété PrixEntrée ??");
+            // Format Français
 
+            CultureInfo culture = new CultureInfo("fr-FR");
+            CultureInfo.CurrentCulture = culture;
+            Assert.AreEqual(taxeFr, vm.Taxe, "Problème avec le format français de la taxe");
+            // Format Américain
+            culture = new CultureInfo("en-US");
+            CultureInfo.CurrentCulture = culture;
+            Assert.AreEqual(taxeEn, vm.Taxe, "Problème avec le format américain de la taxe");
+        }
 
     }
 }
