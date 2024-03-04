@@ -4,22 +4,28 @@
              x:Class="Calculatrice.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Button" x:Key="StyleChiffre">
-                <Setter Property="BackgroundColor" Value="White" />
-                <Setter Property="TextColor" Value="Black" />
+            <Style TargetType="Button" x:Key="StyleTouche">
+                <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="TextColor" Value="Black" />
             </Style>
-            <Style TargetType="Button" x:Key="StyleYel">
+            <Style TargetType="Button" x:Key="StyleChiffre" BasedOn="{StaticResource StyleTouche}">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style TargetType="Button" x:Key="StyleOperateur" BasedOn="{StaticResource StyleTouche}">
                 <Setter Property="BackgroundColor" Value="Orange" />
-                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style TargetType="Label" x:Key="label">
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
         <Grid Padding="20"
-              ColumnSpacing="20"
-              RowSpacing="20"
+              ColumnSpacing="10"
+              RowSpacing="10"
               BackgroundColor="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*">
@@ -43,29 +49,26 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button
+            <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
-                Text="Button"
+                Text="text"
                 BackgroundColor="Black"
                 TextColor="White"
-                FontSize="Large"></Button>
-            <Button
+                Style="{ StaticResource label}"></Label>
+            <Label
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
-                Text="Button"
+                Text="text"
                 BackgroundColor="LightGray"
                 TextColor="Cyan"
-                FontSize="Large"></Button>
+                Style="{ StaticResource label}"></Label>
             <Button
                 Grid.Row="2"
                 Grid.Column="0"
                 Text="7"
-                BackgroundColor="White"
-                TextColor="Black"
-                FontSize="Large"
                 Style="{StaticResource StyleChiffre}"></Button>
             <Button
                 Grid.Row="2"
@@ -81,7 +84,7 @@
                 Grid.Row="2"
                 Grid.Column="3"
                 Text="/"
-                Style="{StaticResource StyleYel}"></Button>
+                Style="{StaticResource StyleOperateur}"></Button>
             <Button
                 Grid.Row="3"
                 Grid.Column="0"
@@ -101,7 +104,7 @@
                 Grid.Row="3"
                 Grid.Column="3"
                 Text="x"
-                Style="{StaticResource StyleYel}"></Button>
+                Style="{StaticResource StyleOperateur}"></Button>
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
@@ -121,7 +124,7 @@
                 Grid.Row="4"
                 Grid.Column="3"
                 Text="-"
-                Style="{StaticResource StyleYel}"></Button>
+                Style="{StaticResource StyleOperateur}"></Button>
             <Button
                 Text="0"
                 Grid.Row="5"
@@ -132,20 +135,19 @@
                 Text="+"
                 Grid.Row="5"
                 Grid.Column="3"
-                Style="{StaticResource StyleYel}"></Button>
+                Style="{StaticResource StyleOperateur}"></Button>
             <Button
                 Text="C"
                 Grid.Row="6"
                 Grid.Column="0"
                 BackgroundColor="DarkGray"
-                TextColor="Black"
-                FontSize="Large"></Button>
+                Style="{StaticResource StyleTouche}"></Button>
             <Button
                 Text="="
                 Grid.Row="6"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource StyleYel}"></Button>
+                Style="{StaticResource StyleOperateur}"></Button>
 
 
 
