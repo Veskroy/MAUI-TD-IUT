@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalculatriceLibrary
 {
@@ -11,6 +12,13 @@ namespace CalculatriceLibrary
         private bool _unique_0 = true;
         public Calculatrice()
         {
+            dictionnaire = new()
+            {
+                { Opération.ADDITIONNER, "+"},
+                { Opération.MULTIPLIER, "*"},
+                { Opération.DIVISER, "/"},
+                { Opération.SOUSTRAIRE, "-"}
+            };
             Opérations = "0";
             Résultat = 0.0;
         }
@@ -26,6 +34,10 @@ namespace CalculatriceLibrary
                 if (_opérateur == true)
                 {
                     Opérations += "0";
+                    _unique_0 = true;
+                    _opérateur = false;
+                    DataTable dta = new DataTable();
+                    Résultat = double.Parse(dta.Compute(Opérations, null).ToString() ?? "0.0");
                     return true;
                 }
                 else if (_unique_0 == true)
@@ -54,11 +66,22 @@ namespace CalculatriceLibrary
             _unique_0 = false;
             return true;
         }
-        // void AddOpérateur( ?? opérateur)
+        public void AddOpérateur(Opération operateur) 
+        {
+            _unique_0 = false;
+            if (_opérateur ==true)
+            {
+                Opérations = Opérations.Substring(0, Opérations.Length - 1) + dictionnaire[operateur];
+            }
+            else { Opérations += dictionnaire[operateur];
+            }
+            _opérateur = true;
+               
+        }
 
         public void Reset()
         {
-            _opérateur=false;
+            _opérateur = false;
             _unique_0 = true;
             Opérations = "0";
             Résultat = 0.0;
@@ -67,7 +90,7 @@ namespace CalculatriceLibrary
       
     }
 
-    enum Opération
+    public enum Opération
     {
         ADDITIONNER = 0,
         SOUSTRAIRE = 1, 
