@@ -26,7 +26,6 @@ namespace CalculatriceLibrary
                 if (_opérateur == true)
                 {
                     Opérations += "0";
-                    _unique_0 = true;
                     return true;
                 }
                 else if (_unique_0 == true)
@@ -36,7 +35,6 @@ namespace CalculatriceLibrary
                 else
                 {
                     Opérations += "0";
-                    _unique_0 = true;
                     return true;
                 }
             }

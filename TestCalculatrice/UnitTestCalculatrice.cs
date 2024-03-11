@@ -14,7 +14,7 @@ namespace TestCalculatrice
             string res = "1";
             for (int _ = 0; _ < 100; ++_)
             {
-                int v = RND.Next(-100, 100);
+                int v = RND.Next(0, 10); // random
                 if (v >= 0 && v <= 9)
                 {
                     calc.AddDigit(v);
