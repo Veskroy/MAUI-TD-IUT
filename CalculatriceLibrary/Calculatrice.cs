@@ -35,6 +35,8 @@ namespace CalculatriceLibrary
                 else
                 {
                     Opérations += "0";
+                    DataTable dta = new DataTable();
+                    Résultat = double.Parse(dta.Compute(Opérations, null).ToString() ?? "0.0");
                     return true;
                 }
             }
