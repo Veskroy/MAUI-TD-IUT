@@ -18,8 +18,10 @@ namespace Calculatrice.ViewModel
         public ICommand AddDigitCommand { get; set; }
         public ICommand AddOperatorCommand { get; set; }
         public ICommand ResetCommand { get; set; }
+        public ICommand EqualCommand { get; set; }
+
         public double Résultat { get => calculatrice.Résultat; }
-        public string Opérations { get => calculatrice.Opérations; }
+        public string Opérations { get => calculatrice.Opérations;}
 
 
         public VMCalculatrice() 
@@ -28,6 +30,7 @@ namespace Calculatrice.ViewModel
             AddDigitCommand = new Command<int>(AddDigit);
             AddOperatorCommand = new Command<string>(AddOperator);
             ResetCommand = new Command(Reset);
+            EqualCommand = new Command(Equal);
 
         }
 
@@ -72,6 +75,12 @@ namespace Calculatrice.ViewModel
             calculatrice.Reset();
             NotifyPropertyChanged(nameof(Opérations));
             this.NotifyPropertyChanged(nameof(Résultat));
+        }
+
+        public void Equal ()
+        {
+            calculatrice.Opérations = calculatrice.Résultat.ToString("F2",System.Globalization.CultureInfo.InvariantCulture);
+            NotifyPropertyChanged(nameof(Opérations));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

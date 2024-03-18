@@ -210,7 +210,8 @@
                 Grid.Row="6"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource StyleOperateur}"></Button>
+                Style="{StaticResource StyleOperateur}"
+                Command="{Binding EqualCommand}"></Button>
 
 
 

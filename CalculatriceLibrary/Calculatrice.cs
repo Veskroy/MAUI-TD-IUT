@@ -4,7 +4,7 @@ namespace CalculatriceLibrary
 {
     public class Calculatrice
     {
-        public string Opérations { get;  private set; }
+        public string Opérations { get; set; }
         public double Résultat { get; private set; }
         private Dictionary<Opération, string> dictionnaire;
         private bool _opérateur = false;
