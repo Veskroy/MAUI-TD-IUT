@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Calculatrice.MainPage">
+             x:Class="Calculatrice.MainPage"
+             xmlns:local="clr-namespace:Calculatrice.ViewModel;assembly=Calculatrice">
+    <ContentPage.BindingContext>
+        <local:VMCalculatrice/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" x:Key="StyleTouche">
@@ -53,7 +57,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
-                Text="text"
+                Text="{Binding Opérations}"
                 BackgroundColor="Black"
                 TextColor="White"
                 Style="{ StaticResource label}"></Label>
@@ -61,7 +65,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
-                Text="text"
+                Text="{ Binding Résultat}"
                 BackgroundColor="LightGray"
                 TextColor="Cyan"
                 Style="{ StaticResource label}"></Label>
@@ -69,79 +73,138 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Text="7"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                        <x:Int32>7</x:Int32>
+                    </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="2"
                 Grid.Column="1"
                 Text="8"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>8</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="2"
                 Grid.Column="2"
                 Text="9"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>9</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="2"
                 Grid.Column="3"
                 Text="/"
-                Style="{StaticResource StyleOperateur}"></Button>
+                Style="{StaticResource StyleOperateur}"
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="/"></Button>
             <Button
                 Grid.Row="3"
                 Grid.Column="0"
                 Text="4"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>4</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="3"
                 Grid.Column="1"
                 Text="5"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>5</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="3"
                 Grid.Column="2"
                 Text="6"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>6</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="3"
                 Grid.Column="3"
                 Text="x"
-                Style="{StaticResource StyleOperateur}"></Button>
+                Style="{StaticResource StyleOperateur}"
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="*"></Button>
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
                 Text="1"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>1</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="2"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>2</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="4"
                 Grid.Column="2"
                 Text="3"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>3</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Grid.Row="4"
                 Grid.Column="3"
                 Text="-"
-                Style="{StaticResource StyleOperateur}"></Button>
+                Style="{StaticResource StyleOperateur}"
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="-"></Button>
             <Button
                 Text="0"
                 Grid.Row="5"
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource StyleChiffre}"></Button>
+                Style="{StaticResource StyleChiffre}"
+                Command="{Binding AddDigitCommand}">
+                <Button.CommandParameter>
+                <x:Int32>0</x:Int32>
+                </Button.CommandParameter>
+            </Button>
             <Button
                 Text="+"
                 Grid.Row="5"
                 Grid.Column="3"
-                Style="{StaticResource StyleOperateur}"></Button>
+                Style="{StaticResource StyleOperateur}"
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="+"></Button>
             <Button
                 Text="C"
                 Grid.Row="6"
                 Grid.Column="0"
                 BackgroundColor="DarkGray"
-                Style="{StaticResource StyleTouche}"></Button>
+                Style="{StaticResource StyleTouche}"
+                Command="{Binding ResetCommand}"></Button>
             <Button
                 Text="="
                 Grid.Row="6"

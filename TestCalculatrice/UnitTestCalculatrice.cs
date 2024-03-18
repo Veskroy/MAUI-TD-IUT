@@ -64,7 +64,7 @@ namespace TestCalculatrice
             Assert.AreEqual("0", calc.Opérations);
             Assert.IsFalse(calc.AddDigit(0));
             Assert.AreEqual("0", calc.Opérations);
-            calc.AddOpérateur(Opération.ADDITIONNER);
+            calc.AddOperator(Opération.ADDITIONNER);
             Assert.AreEqual("0+", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 0");
             Assert.IsTrue(calc.AddDigit(0));
@@ -73,7 +73,7 @@ namespace TestCalculatrice
             Assert.IsTrue(calc.AddDigit(2));
             Assert.AreEqual("0+2", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 2) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 2");
-            calc.AddOpérateur(Opération.MULTIPLIER);
+            calc.AddOperator(Opération.MULTIPLIER);
             Assert.AreEqual("0+2*", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 2) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 2");
             Assert.IsTrue(calc.AddDigit(0));
@@ -82,7 +82,7 @@ namespace TestCalculatrice
             Assert.IsFalse(calc.AddDigit(0));
             Assert.AreEqual("0+2*0", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 0");
-            calc.AddOpérateur(Opération.SOUSTRAIRE);
+            calc.AddOperator(Opération.SOUSTRAIRE);
             Assert.AreEqual("0+2*0-", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 0");
             Assert.IsTrue(calc.AddDigit(0));
@@ -97,19 +97,19 @@ namespace TestCalculatrice
             calc.AddDigit(4);
             Assert.AreEqual("54", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
-            calc.AddOpérateur(Opération.ADDITIONNER);
+            calc.AddOperator(Opération.ADDITIONNER);
             Assert.AreEqual("54+", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
-            calc.AddOpérateur(Opération.SOUSTRAIRE);
+            calc.AddOperator(Opération.SOUSTRAIRE);
             Assert.AreEqual("54-", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
-            calc.AddOpérateur(Opération.DIVISER);
+            calc.AddOperator(Opération.DIVISER);
             Assert.AreEqual("54/", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
-            calc.AddOpérateur(Opération.MULTIPLIER);
+            calc.AddOperator(Opération.MULTIPLIER);
             Assert.AreEqual("54*", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
-            calc.AddOpérateur(Opération.MULTIPLIER);
+            calc.AddOperator(Opération.MULTIPLIER);
             Assert.AreEqual("54*", calc.Opérations);
             Assert.IsTrue(Math.Abs(calc.Résultat - 54) < 1e-5, $"Le résultat {calc.Résultat} devrait être égal à 54");
         }

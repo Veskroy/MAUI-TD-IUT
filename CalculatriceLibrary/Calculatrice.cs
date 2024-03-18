@@ -1,6 +1,5 @@
 ﻿using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using System.Windows.Input;
 namespace CalculatriceLibrary
 {
     public class Calculatrice
@@ -66,7 +65,7 @@ namespace CalculatriceLibrary
             _unique_0 = false;
             return true;
         }
-        public void AddOpérateur(Opération operateur) 
+        public void AddOperator(Opération operateur) 
         {
             _unique_0 = false;
             if (_opérateur ==true)
