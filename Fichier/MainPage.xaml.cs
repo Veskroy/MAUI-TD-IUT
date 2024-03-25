@@ -4,14 +4,22 @@ namespace Fichier
 {
     public partial class MainPage : ContentPage
     {
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            IList<VMCitation>? liste = (Application.Current as App)?.Citations;
-            LblCount.Text = (liste is null ? "???" : liste.Count.ToString()) + " citations";
-            BtnDisplay.Text = "Afficher les citations";
+            this.IsBusy = true;
+
+            int? count = await Task<int?>.Run(() =>
+            {
+                return (Application.Current as App)?.Citations.Count;
+            });
+
+            LblCount.Text = count is null ? "???" : count.ToString() + " citations";
             BtnDisplay.IsEnabled = true;
+            BtnDisplay.Text = "Afficher les citations";
+            this.IsBusy = false;
         }
+
         public MainPage()
         {
             InitializeComponent();
