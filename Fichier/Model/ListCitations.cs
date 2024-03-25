@@ -14,9 +14,9 @@ namespace Fichier.Model
                 if (citations == null)
                 {
                     Load();
-                    return Citations;
+                    return citations;
                 }
-                return Citations;
+                return citations;
             }
 
             private set { } }

@@ -7,7 +7,7 @@
     <StackLayout Orientation="Vertical" Padding="20">
         <Label Text="Citations" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
         <Label Text="??? citations" HorizontalOptions="End" x:Name="LblCount"/>
-        <Button VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="20" Text="Chargement des citations en cours..." IsEnabled="False" x:Name="BtnDisplay"/>
+        <Button VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="20" Text="Chargement des citations en cours..." IsEnabled="False" x:Name="BtnDisplay" Clicked="BtnDisplay_Clicked"/>
         <Label Text="Application développée par Kpatinde Vincent et Linden Thomas (c) 2024" HorizontalOptions="End" FontAttributes="Italic" Margin="10, 0, 0, 0"/>
     </StackLayout>
 

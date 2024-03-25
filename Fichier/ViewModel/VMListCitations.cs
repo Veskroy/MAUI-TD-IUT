@@ -23,9 +23,9 @@ namespace Fichier.ViewModel
                         vmList.Add(new VMCitation(cit));
                     }
                 }
-                return Citations;
+                return vmList;
             } 
-            private set { Citations = value; } 
+            private set { } 
         }
     }
 }

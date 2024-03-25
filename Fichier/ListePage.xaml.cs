@@ -1,9 +1,13 @@
+using Fichier.Model;
+using Fichier.ViewModel;
+
 namespace Fichier;
 
-public partial class NewPage1 : ContentPage
+public partial class ListePage : ContentPage
 {
-	public NewPage1()
+	public ListePage()
 	{
 		InitializeComponent();
-	}
+        LstCitations.ItemsSource = (Application.Current as App)?.Citations;
+    } 
 }
