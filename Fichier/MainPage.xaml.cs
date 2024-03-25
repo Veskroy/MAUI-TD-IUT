@@ -6,7 +6,7 @@ namespace Fichier
     {
         protected async override void OnAppearing()
         {
-            base.OnAppearing();
+            /*base.OnAppearing();
             this.IsBusy = true;
 
             int? count = await Task<int?>.Run(() =>
@@ -17,7 +17,8 @@ namespace Fichier
             LblCount.Text = count is null ? "???" : count.ToString() + " citations";
             BtnDisplay.IsEnabled = true;
             BtnDisplay.Text = "Afficher les citations";
-            this.IsBusy = false;
+            this.IsBusy = false;*/
+            new VMInitCitations().Init(this);
         }
 
         public MainPage()
@@ -26,6 +27,10 @@ namespace Fichier
         }
 
         private async void BtnDisplay_Clicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new ListePage());
+        }
+        public async void DisplayListePage()
         {
             await this.Navigation.PushAsync(new ListePage());
         }
